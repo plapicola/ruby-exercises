@@ -39,8 +39,11 @@ class MedusaTest < Minitest::Test
     victim_3 = Person.new("Tim")
     victim_4 = Person.new("John")
     medusa.stare(victim_1)
+    assert_equal 1, medusa.statues.count
     medusa.stare(victim_2)
+    assert_equal 2, medusa.statues.count
     medusa.stare(victim_3)
+    assert_equal 3, medusa.statues.count
     medusa.stare(victim_4)
     assert_equal 3, medusa.statues.count
   end
@@ -55,7 +58,7 @@ class MedusaTest < Minitest::Test
     medusa.stare(victim_2)
     medusa.stare(victim_3)
     medusa.stare(victim_4)
-    assert_equal "Jim", medusa.statues.first.name
+    refute victim_1.stoned?
   end
 
 end
