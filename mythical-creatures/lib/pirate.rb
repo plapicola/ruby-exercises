@@ -15,10 +15,7 @@ class Pirate
 
   def commit_heinous_act
     @heinous_act_count += 1
-
-    if @heinous_act_count == 3
-      @cursed = true
-    end
+    @cursed = @heinous_act_count == 3
   end
 
   def rob_ship
