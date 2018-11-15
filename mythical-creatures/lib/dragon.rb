@@ -16,9 +16,6 @@ class Dragon
 
   def eat
     @meal_count += 1
-
-    if @meal_count == 3
-      @hungry = false
-    end
+    @hungry = !(@meal_count == 3)
   end
 end
