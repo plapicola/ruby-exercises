@@ -7,6 +7,7 @@ class Medusa
 
   def stare(victim)
     if @statues.count == 3
+      @statues[0].stoned = false
       @statues.delete_at(0)
     end
     @statues << victim

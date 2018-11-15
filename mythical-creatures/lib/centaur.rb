@@ -12,9 +12,7 @@ class Centaur
 
   def shoot
     @action_count += 1
-    if @action_count >= 3
-      @cranky = true
-    end
+    @cranky = @action_count >= 3
 
     if @cranky || !@standing
       return "NO!"
@@ -25,9 +23,7 @@ class Centaur
 
   def run
     @action_count += 1
-    if @action_count >= 3
-      @cranky = true
-    end
+    @cranky = @action_count >= 3
 
     if @cranky || !@standing
       return "NO!"
@@ -46,15 +42,13 @@ class Centaur
   end
 
   def drink_potion
-    if @standing
-      if @rested
-        @sick = true
-      else
-        @rested = true
-      end
-    else
+    @sick = @standing && @rested
+    @rested = @standing || @rested
+
+    if !@standing
       return "NO!"
     end
+
   end
 
   def lay_down
