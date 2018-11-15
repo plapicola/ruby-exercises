@@ -1,14 +1,9 @@
 class Hobbit
   attr_reader :name, :disposition, :age
-  def initialize(*args)
-    @name = args[0]
+  def initialize(name, disposition = "homebody")
+    @name = name
     @age = 0
-
-    if args.length > 1
-      @disposition = args[1]
-    else
-      @disposition = "homebody"
-    end
+    @disposition = disposition
   end
 
   def celebrate_birthday()

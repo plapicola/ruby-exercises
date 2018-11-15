@@ -2,15 +2,10 @@ class Vampire
 
   attr_reader :name, :pet, :thirsty
 
-  def initialize(*args)
-      @name = args[0]
+  def initialize(name, pet = "bat")
+      @name = name
       @thirsty = true
-
-      if args.length > 1
-        @pet = args[1]
-      else
-        @pet = "bat"
-      end
+      @pet = pet
   end
 
   def drink

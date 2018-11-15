@@ -2,14 +2,9 @@ class Unicorn
 
   attr_accessor :name, :color
 
-  def initialize(*args)
-      @name = args[0]
-
-      if args.length > 1
-        @color = args[1]
-      else
-        @color = "white"
-      end
+  def initialize(name, color = "white")
+      @name = name
+      @color = color
   end
 
   def white?

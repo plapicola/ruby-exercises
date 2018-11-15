@@ -1,15 +1,10 @@
 class Werewolf
   attr_reader :name, :location
-  def initialize(*args)
-    @name = args[0]
+  def initialize(name, location = "Unknown")
+    @name = name
     @form = "human"
     @hungry = false
-
-    if args.length > 1
-      @location = args[1]
-    else
-      @location = "Unknown"
-    end
+    @location = location
   end
 
   def human?

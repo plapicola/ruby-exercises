@@ -1,13 +1,9 @@
 class Wizard
   attr_reader :name
-  def initialize(*args)
-    @name = args[0]
+  def initialize(name, bearded = {bearded: true})
+    @name = name
     @spell_count = 0
-    if args.length > 1
-      @bearded = args[1][:bearded]
-    else
-      @bearded = true
-    end
+    @bearded = bearded[:bearded]
   end
 
   def bearded?

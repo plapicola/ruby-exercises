@@ -1,8 +1,8 @@
 class Centaur
   attr_reader :name, :breed
-  def initialize(*args)
-    @name = args[0]
-    @breed = args[1]
+  def initialize(name, breed)
+    @name = name
+    @breed = breed
     @cranky = false
     @rested = false
     @standing = true

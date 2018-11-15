@@ -1,7 +1,7 @@
 class Medusa
   attr_reader :name, :statues
-  def initialize(*args)
-    @name = args[0]
+  def initialize(name)
+    @name = name
     @statues = Array.new()
   end
 
@@ -10,7 +10,7 @@ class Medusa
       @statues.delete_at(0)
     end
     @statues << victim
-    victim.stoned = true    
+    victim.stoned = true
   end
 end
 

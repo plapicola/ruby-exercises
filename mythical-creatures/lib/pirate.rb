@@ -1,16 +1,12 @@
 class Pirate
   attr_reader :name, :job, :booty
 
-  def initialize(*args)
-    @name = args[0]
+  def initialize(name, job = "Scallywag")
+    @name = name
     @cursed = false
     @heinous_act_count = 0
     @booty = 0
-    if args.length > 1
-      @job = args[1]
-    else
-      @job = "Scallywag"
-    end
+    @job = job
   end
 
   def cursed?
