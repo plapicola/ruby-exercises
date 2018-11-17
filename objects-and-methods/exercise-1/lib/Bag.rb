@@ -24,4 +24,8 @@ class Bag
     return false
   end
 
+  def remove_candy
+    @count -= 1 unless @count == 0
+  end
+
 end
