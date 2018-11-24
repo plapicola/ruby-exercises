@@ -1,9 +1,9 @@
 class Wizard
   attr_reader :name
-  def initialize(name, bearded = {bearded: true})
+  def initialize(name, bearded: true)
     @name = name
     @spell_count = 0
-    @bearded = bearded[:bearded]
+    @bearded = bearded
   end
 
   def bearded?
