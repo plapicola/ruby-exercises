@@ -38,7 +38,7 @@ class InjectPatternTest < Minitest::Test
 
     product = 1
     numbers.each do |number|
-      # Your Code Here
+      product *= number
     end
     assert_equal 210, product
   end
@@ -54,7 +54,7 @@ class InjectPatternTest < Minitest::Test
 
     product = 1
     scrabble_score.each do |(key, value)|
-      # Your Code Here
+      product *= value
     end
     assert_equal 138, product
   end
@@ -66,7 +66,9 @@ class InjectPatternTest < Minitest::Test
     # key and the length of the name as the value
 
     number_of_letters = {}
-    # Your Code Here
+    airlines.each do |name|
+      number_of_letters[name] = name.length
+    end
 
     expected = {
       "Southwest" => 9,
@@ -89,7 +91,10 @@ class InjectPatternTest < Minitest::Test
     # to create an array of all the toppings
 
     toppings = []
-    # Your Code Here
+    topping_calories.each do |topping, calories|
+      toppings << topping.to_s
+    end
+
 
     assert_equal ["pepperoni", "sausage", "olives", "peppers", "onions"], toppings
   end
@@ -100,6 +105,10 @@ class InjectPatternTest < Minitest::Test
     # to find the sum of all the integers
 
     # Your Code Here
+    sum_of_second_values = 0
+    elements.each do |char, value|
+      sum_of_second_values += value
+    end
 
     assert_equal 31, sum_of_second_values
 
@@ -132,7 +141,10 @@ class InjectPatternTest < Minitest::Test
     # total calories. You will need to multiply each topping's
     # calorie count by the quantity
 
-    # Your Code Here
+    total_calories = 0
+    toppings.each do |topping, information|
+      total_calories += (information[:calories] * information[:quantity])
+    end
 
     assert_equal 6950, total_calories
   end
@@ -149,7 +161,15 @@ class InjectPatternTest < Minitest::Test
     # calculated by averaging each category together and
     # summing all of the averages
 
-    # Your code goes here
+    final_grade = 0
+    grades.each do |category, scores|
+      average = 0
+      scores.each do |score|
+        average += score
+      end
+      average /= scores.length.to_f # Type cast to prevent integer division
+      final_grade += average
+    end
 
     assert_equal 85.40, final_grade
   end
@@ -174,11 +194,31 @@ class InjectPatternTest < Minitest::Test
     # version of the menu
 
     # Your Code Here
+    printable_menu = "Menu:\n"
+    menu.each do |item, properties|
+      printable_menu += "- "
+      properties[:flavors].each do |flavor|
+        if properties[:flavors].last == flavor
+          printable_menu += "and #{flavor} #{item}"
+        else
+          printable_menu += "#{flavor}, "
+        end
+      end
+
+      if properties[:gluten_free]
+        printable_menu += " (gluten free)\n"
+      else
+        printable_menu += " (non gluten free)\n"
+      end
+    end
+
+
 
     expected =  "Menu:\n"\
                 "- chicken, potato, steak, and veggie empanadas (non gluten free)\n"\
                 "- blueberry, and vanilla scones (non gluten free)\n"\
                 "- blueberry, strawberry, and cherry parfaits (gluten free)\n"
+
 
     assert_equal expected, printable_menu
   end
