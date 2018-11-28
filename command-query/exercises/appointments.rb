@@ -1,3 +1,4 @@
+require_relative 'time'
 class Appointments
   def initialize
     @times = []
